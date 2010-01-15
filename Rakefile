@@ -6,7 +6,7 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rake/packagetask'
 require 'rake/gempackagetask'
-#require 'rake/contrib/sshpublisher'
+
 require File.join(File.dirname(__FILE__), 'lib', 'brdinheiro_lite', 'version')
 
 PKG_BUILD     = ENV['PKG_BUILD'] ? '.' + ENV['PKG_BUILD'] : ''
@@ -63,17 +63,4 @@ Rake::GemPackageTask.new(spec) do |p|
   p.gem_spec = spec
   p.need_tar = true
   p.need_zip = true
-end
-
-desc "Publish the release files to RubyForge."
-task :release => [ :package ] do
-  require 'rubyforge'
-  require 'rake/contrib/rubyforgepublisher'
-  
-  packages = %w( gem tgz zip ).collect{ |ext| "pkg/#{PKG_NAME}-#{PKG_VERSION}.#{ext}" }
-  
-  rubyforge = RubyForge.new
-  rubyforge.configure
-  rubyforge.login
-  rubyforge.add_release("brazilian-rails", PKG_NAME, "REL #{PKG_VERSION}", *packages)
 end
