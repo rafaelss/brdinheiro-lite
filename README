@@ -1,1 +1,3 @@
 Esse projeto é uma versão mais leve da gem brdinheiro, sem integração com as gems ActiveRecord e brnumeros.
+
+AVISO: Esta versão ainda é ALPHA, erros podem acontecer ainda, então use por sua conta e risco :)
