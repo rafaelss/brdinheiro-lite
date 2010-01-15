@@ -6,7 +6,7 @@ dinheiro_util
 excecoes
 nil_class
 extenso
-extenso_real).each {|req| require File.dirname(__FILE__) + "/brdinheiro/#{req}"}
+extenso_real).each {|req| require File.dirname(__FILE__) + "/brdinheiro_lite/#{req}"}
 
 require 'bigdecimal'
 
